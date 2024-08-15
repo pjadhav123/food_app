@@ -1,0 +1,56 @@
+<html>
+	<head>
+		<title>Food App by Kamal Sir</title>
+		<style>
+			*{font-size:40px; font-family:Cambria;}
+			body{background-color:linen;}
+			input[type=radio]{width:2%; height:0.7em;}
+		</style>
+	</head>
+
+	<body>
+		<center>
+			<h1>Food App</h1>
+			<form onsubmit="show()">
+				<input type="text"  id="name" placeholder="enter name"/>
+					<br><br>
+				<input type="radio" name="f" id="ni"/>North Indian
+				<input type="radio" name="f" id="si" checked="true"/>South Indian
+				<input type="radio" name="f" id="ff"/>Fast food
+					<br><br>
+				<input type="submit"/>
+			</form>
+				<h2 id="msg"/>
+			
+			<script>
+				function show()
+				{
+					event.preventDefault();
+					let name = document.getElementById("name");
+					let ni = document.getElementById("ni");
+					let si = document.getElementById("si");
+					let ff = document.getElementById("ff");
+					let msg = document.getElementById("msg");
+				
+					if (name.value.trim()==="")
+					{
+						alert("name cannot be empty/blank spaces");
+						msg.innerHTML="";
+						name.focus();
+						return;
+					}
+					
+					let n = name.value
+					let c = "";
+					if (ni.checked)		c="North Indian"
+					else if (si.checked)	c="South Indian"
+					else			c="Fast food"
+
+					let a = "name = " + n + " choice = " + c;
+
+					msg.innerHTML=a;
+				}
+			</script>
+		</center>
+	</body>
+</html>
